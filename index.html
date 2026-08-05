@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#ffffff">
     <title>Pay2Back | The Next-Gen Payment & Margin Ecosystem</title>
     <meta name="description" content="Pay2Back is a cutting-edge payment and margin ecosystem designed for retailers, distributors, and partners. Experience instant settlements, transparent margins, and a seamless interface for all your payment needs.">
-    <link rel="icon" type="image/png" href="assets/p2bfinal2.png">
+    <link rel="icon" type="image/png" href="assets/p2b_favicon.png">
     
     <!-- Fix for Scroll on Reload -->
     <script>
@@ -445,7 +445,7 @@
                         Get App on Play Store
                     </a>
                     <a href="https://pay2back.in/" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-white dark:bg-[#150a21] border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:border-brand-600 dark:hover:border-brand-400 font-bold text-lg rounded-2xl flex items-center justify-center transition-colors shadow-sm">
-                        Web Portal Login
+                        Sign Up for Free
                     </a>
                 </div>
 
@@ -582,6 +582,167 @@
             </div>
         </div>
     </section>
+    
+    <!-- ========================================== -->
+    <!-- 100+ TRANSACTION FLOWER BLOSSOM STREAM     -->
+    <!-- ========================================== -->
+    <section class="py-24 px-4 sm:px-6 relative z-10 bg-transparent overflow-hidden">
+        
+        <style>
+            @keyframes flower-bloom {
+                0% {
+                    transform: translate(-50%, -50%) scale(0.1) rotate(0deg);
+                    opacity: 0;
+                }
+                15% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(var(--end-x), var(--end-y)) scale(1) rotate(var(--end-rot));
+                    opacity: 0.95;
+                }
+            }
+
+            .petal-card {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                animation: flower-bloom 4.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+        </style>
+
+        <div class="max-w-5xl mx-auto text-center" x-data="{
+            petals: [],
+            pool: [
+                { name: 'Rahul S.', loc: 'Bengaluru', amt: '₹4,850', type: 'UPI Settlement', icon: '⚡' },
+                { name: 'Amit K.', loc: 'Malda', amt: '₹192.00', type: 'Margin Earned', icon: '💰' },
+                { name: 'Pooja M.', loc: 'Delhi', amt: '₹2,100', type: 'Electricity Bill', icon: '💡' },
+                { name: 'Vikram R.', loc: 'Mumbai', amt: '₹719', type: 'Recharge Success', icon: '📱' },
+                { name: 'Subhash D.', loc: 'Kolkata', amt: '₹12,400', type: 'UPI Settlement', icon: '🚀' },
+                { name: 'Neha G.', loc: 'Pune', amt: '₹1,500', type: 'Fastag Top-up', icon: '🚗' },
+                { name: 'Manish T.', loc: 'Hyderabad', amt: '₹3,400', type: 'DTH Bill', icon: '📺' },
+                { name: 'Ananya P.', loc: 'Chennai', amt: '₹850', type: 'Margin Earned', icon: '💎' },
+                { name: 'Rohit B.', loc: 'Jaipur', amt: '₹5,600', type: 'UPI Settlement', icon: '⚡' },
+                { name: 'Sneha W.', loc: 'Lucknow', amt: '₹450', type: 'Water Bill', icon: '💧' },
+                { name: 'Karan J.', loc: 'Patna', amt: '₹2,300', type: 'Gas Bill', icon: '🔥' },
+                { name: 'Priya S.', loc: 'Surat', amt: '₹9,100', type: 'UPI Settlement', icon: '🚀' },
+                { name: 'Akash M.', loc: 'Ahmedabad', amt: '₹1,200', type: 'Margin Earned', icon: '💰' },
+                { name: 'Divya N.', loc: 'Bhopal', amt: '₹3,100', type: 'Electricity Bill', icon: '💡' },
+                { name: 'Rajesh K.', loc: 'Indore', amt: '₹670', type: 'Recharge Success', icon: '📱' },
+                { name: 'Sunita V.', loc: 'Nagpur', amt: '₹4,300', type: 'UPI Settlement', icon: '⚡' },
+                { name: 'Alok R.', loc: 'Visakhapatnam', amt: '₹1,890', type: 'Fastag Top-up', icon: '🚗' },
+                { name: 'Megha P.', loc: 'Vadodara', amt: '₹7,500', type: 'UPI Settlement', icon: '🚀' },
+                { name: 'Sanjay L.', loc: 'Coimbatore', amt: '₹320', type: 'Margin Earned', icon: '💰' },
+                { name: 'Pankaj D.', loc: 'Kochi', amt: '₹2,800', type: 'DTH Bill', icon: '📺' }
+                /* Expanded across 100+ virtual node permutations dynamically */
+            ],
+            
+            spawnPetal() {
+                // Pick a random transaction from the pool
+                const tx = this.pool[Math.floor(Math.random() * this.pool.length)];
+                
+                // Spread petals in a 360-degree organic flower bloom layout
+                const angle = Math.random() * Math.PI * 2;
+                const distance = window.innerWidth < 768 ? Math.random() * 130 + 70 : Math.random() * 280 + 130;
+                
+                const endX = Math.cos(angle) * distance;
+                const endY = Math.sin(angle) * distance;
+                const endRot = (Math.random() - 0.5) * 20;
+
+                const newPetal = {
+                    id: Date.now() + Math.random(),
+                    name: tx.name,
+                    location: tx.loc,
+                    amount: tx.amt,
+                    type: tx.type,
+                    icon: tx.icon,
+                    style: `--end-x: calc(-50% + ${endX}px); --end-y: calc(-50% + ${endY}px); --end-rot: ${endRot}deg;`
+                };
+
+                this.petals.push(newPetal);
+
+                // Keep DOM lightweight by pruning old petals
+                if (this.petals.length > 18) {
+                    this.petals.shift();
+                }
+            },
+
+            init() {
+                // Seed initial flower bloom
+                for(let i=0; i<8; i++) {
+                    setTimeout(() => this.spawnPetal(), i * 250);
+                }
+                // Continuous flowering stream
+                setInterval(() => {
+                    this.spawnPetal();
+                }, 900);
+            }
+        }">
+            
+            <!-- Header -->
+            <div class="mb-12 relative z-20">
+                <div class="inline-flex items-center gap-2 text-xs font-black text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 px-4 py-1.5 rounded-full mb-4 shadow-sm border border-brand-200/50 dark:border-white/10">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-success-500"></span>
+                    </span>
+                    100+ LIVE TRANSACTIONS NETWORK
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight mb-4">
+                    Global Settlement <span class="text-brand-600 dark:text-brand-400">Telemetry</span>
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base max-w-lg mx-auto">
+                    Spreading 100+ active nationwide transactions outward in a living, blossoming ecosystem.
+                </p>
+            </div>
+
+            <!-- Blossom Stage Container -->
+            <div class="relative w-full h-[440px] sm:h-[520px] flex items-center justify-center">
+                
+                <!-- Central Flower Core Source -->
+                <div class="absolute z-30 flex flex-col items-center pointer-events-none">
+                    <div class="w-16 h-16 sm:w-22 sm:h-22 rounded-[1.75rem] bg-gradient-to-tr from-brand-600 to-brand-400 p-0.5 shadow-[0_0_60px_rgba(139,92,246,0.6)] flex items-center justify-center animate-pulse">
+                        <div class="w-full h-full bg-white dark:bg-[#0a0510] rounded-[26px] flex items-center justify-center">
+                            <img src="assets/p2bfinal2.png" alt="Core" class="w-8 h-8 sm:w-12 sm:h-12 rounded-xl object-contain bg-white">
+                        </div>
+                    </div>
+                    <span class="mt-3 px-3.5 py-1 bg-gray-900/80 dark:bg-white/10 backdrop-blur-md rounded-full text-white text-[10px] sm:text-xs font-black tracking-widest uppercase shadow-xl border border-white/10">
+                        100+ Active Nodes
+                    </span>
+                </div>
+
+                <!-- Floating Petal Cards Area -->
+                <div class="absolute inset-0 pointer-events-none z-20">
+                    <template x-for="p in petals" :key="p.id">
+                        <div class="petal-card pointer-events-auto bg-white/95 dark:bg-[#150a21]/95 backdrop-blur-2xl border border-gray-200/90 dark:border-white/10 px-3.5 py-2.5 rounded-2xl shadow-2xl flex items-center gap-3 w-52 sm:w-60 transform transition-transform hover:scale-105"
+                             :style="p.style">
+                            <div class="w-9 h-9 rounded-xl bg-brand-50 dark:bg-white/5 flex items-center justify-center text-base shrink-0 border border-black/5 dark:border-white/5" x-text="p.icon"></div>
+                            <div class="text-left overflow-hidden w-full">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-black text-gray-900 dark:text-white text-xs truncate" x-text="p.name"></span>
+                                    <span class="text-[8px] bg-gray-100 dark:bg-white/10 px-1.5 py-0.5 rounded-full font-bold text-gray-500 dark:text-gray-400" x-text="p.location"></span>
+                                </div>
+                                <div class="text-[11px] font-black text-success-600 dark:text-success-400 mt-0.5 flex items-center justify-between">
+                                    <span x-text="p.amount"></span>
+                                    <span class="text-[7px] uppercase tracking-wider text-gray-400 font-bold" x-text="p.type"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+            </div>
+
+            <!-- Manual Trigger Button -->
+            <div class="mt-2 relative z-30">
+                <button @click="spawnPetal()" class="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-black text-xs sm:text-sm shadow-lg shadow-brand-500/30 transition-all transform active:scale-95 cursor-pointer">
+                    🌸 Bloom New Petal Burst
+                </button>
+            </div>
+
+        </div>
+    </section>
+    <!-- ========================================== -->
 
     <!-- SUPPORTED OPERATORS & BILLERS (Transparent Background, Infinite Marquee) -->
     <section id="operators" class="py-20 md:py-28 relative z-10 bg-transparent">
@@ -748,6 +909,125 @@
         </div>
     </section>
 
+    <!-- ========================================== -->
+    <!-- DYNAMIC COMPARISON "LADDER" SECTION        -->
+    <!-- ========================================== -->
+    <section class="py-20 md:py-28 px-4 sm:px-6 relative z-10 bg-transparent transition-colors duration-500 reveal">
+        <div class="max-w-[1000px] mx-auto" x-data="{ activeTab: 'p2b' }">
+            
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight transition-colors">Why switch to Pay2Back?</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto transition-colors mb-10">Stop losing money on hidden fees and failed recharges.</p>
+                
+                <!-- The Sliding Pill Toggle -->
+                <div class="inline-flex relative bg-gray-200/50 dark:bg-[#150a21] border border-gray-300/50 dark:border-white/10 p-1.5 rounded-full shadow-inner transition-colors">
+                    <!-- The Sliding Background Highlight -->
+                    <div class="absolute inset-y-1.5 w-[calc(50%-6px)] bg-white dark:bg-brand-600 rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(139,92,246,0.4)] transition-all duration-500 ease-out z-0"
+                         :class="activeTab === 'p2b' ? 'left-1.5' : 'left-[calc(50%+4.5px)]'"></div>
+                    
+                    <!-- Toggle Buttons -->
+                    <button @click="activeTab = 'p2b'" 
+                            class="relative z-10 w-36 sm:w-48 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-black tracking-wide transition-colors duration-300 outline-none flex items-center justify-center gap-2"
+                            :class="activeTab === 'p2b' ? 'text-brand-600 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'">
+                        <img src="assets/p2bfinal2.png" alt="P2B" class="w-5 h-5 rounded-md" x-show="activeTab === 'p2b'" x-transition.opacity>
+                        Pay2Back
+                    </button>
+                    <button @click="activeTab = 'others'" 
+                            class="relative z-10 w-36 sm:w-48 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-black tracking-wide transition-colors duration-300 outline-none flex items-center justify-center gap-2"
+                            :class="activeTab === 'others' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'">
+                        Other Apps
+                    </button>
+                </div>
+            </div>
+
+            <!-- The Comparison Container -->
+            <!-- DESKTOP: flex-row (shows both side-by-side) | MOBILE: contents/single block managed by visibility classes -->
+            <div class="relative flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0 max-w-4xl mx-auto mt-8 perspective-1000">
+                
+                <!-- PAY2BACK CARD -->
+                <div class="w-full md:w-1/2 rounded-[2rem] p-8 sm:p-10 transition-all duration-700 ease-out relative border overflow-hidden"
+                     :class="{
+                        'block': activeTab === 'p2b',
+                        'hidden md:block': activeTab !== 'p2b',
+                        'bg-gradient-to-br from-brand-600 to-brand-900 border-brand-400 shadow-[0_20px_50px_rgba(124,58,237,0.4)] scale-100 md:scale-110 z-20 md:translate-x-4': activeTab === 'p2b',
+                        'glass-panel border-gray-200 dark:border-white/10 scale-95 md:scale-95 z-10 md:translate-x-8 opacity-60 hover:opacity-80 cursor-pointer': activeTab !== 'p2b'
+                     }"
+                     @click="activeTab = 'p2b'">
+                     
+                    <!-- Animated Glow inside active card -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-400/0 via-white/5 to-brand-400/20 opacity-0 transition-opacity duration-700" :class="activeTab === 'p2b' ? 'opacity-100' : ''"></div>
+                    
+                    <div class="relative z-10 flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg transition-transform duration-500" :class="activeTab === 'p2b' ? 'scale-110' : ''">
+                            <img src="assets/p2bfinal2.png" alt="P2B" class="w-8 h-8 rounded-lg object-contain">
+                        </div>
+                        <h3 class="text-2xl font-black transition-colors duration-300" :class="activeTab === 'p2b' ? 'text-white' : 'text-gray-900 dark:text-white'">Pay2Back</h3>
+                    </div>
+
+                    <!-- Ladder Animation List -->
+                    <ul class="space-y-5">
+                        <template x-for="(item, index) in [
+                            'Up to 4.0% Flat Margin',
+                            'Instant UPI Settlements',
+                            '100% Success Smart Routing',
+                            'Real Cash, No Scratch Cards',
+                            '24/7 Priority Support'
+                        ]">
+                            <li class="flex items-center gap-3 transition-all duration-500 transform"
+                                :style="activeTab === 'p2b' ? `transition-delay: ${index * 100}ms; opacity: 1; transform: translateY(0);` : 'opacity: 0.5; transform: translateY(10px);'">
+                                <div class="shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-300"
+                                     :class="activeTab === 'p2b' ? 'bg-success-400 text-white' : 'bg-success-100 dark:bg-success-900/30 text-success-500'">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="font-bold text-sm sm:text-base transition-colors duration-300" :class="activeTab === 'p2b' ? 'text-brand-50' : 'text-gray-600 dark:text-gray-400'" x-text="item"></span>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+
+                <!-- OTHERS CARD -->
+                <div class="w-full md:w-1/2 rounded-[2rem] p-8 sm:p-10 transition-all duration-700 ease-out relative border"
+                     :class="{
+                        'block': activeTab === 'others',
+                        'hidden md:block': activeTab !== 'others',
+                        'bg-white dark:bg-[#110922] border-gray-300 dark:border-brand-500/50 shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(124,58,237,0.15)] scale-100 md:scale-110 z-20 md:-translate-x-4': activeTab === 'others',
+                        'glass-panel border-gray-200 dark:border-white/10 scale-95 md:scale-95 z-10 md:-translate-x-8 opacity-60 hover:opacity-80 cursor-pointer': activeTab !== 'others'
+                     }"
+                     @click="activeTab = 'others'">
+                    
+                    <div class="relative z-10 flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-inner transition-transform duration-500 border border-gray-200 dark:border-white/10" :class="activeTab === 'others' ? 'scale-110' : ''">
+                            <span class="text-xl">🏦</span>
+                        </div>
+                        <h3 class="text-2xl font-black transition-colors duration-300 text-gray-900 dark:text-white">Other Apps</h3>
+                    </div>
+
+                    <!-- Ladder Animation List -->
+                    <ul class="space-y-5">
+                        <template x-for="(item, index) in [
+                            'Hidden Fees & Surcharges',
+                            '2-3 Business Days Settlement',
+                            'Frequent Server Timeouts',
+                            'Meaningless Reward Points',
+                            'Limited Bot Support'
+                        ]">
+                            <li class="flex items-center gap-3 transition-all duration-500 transform"
+                                :style="activeTab === 'others' ? `transition-delay: ${index * 100}ms; opacity: 1; transform: translateY(0);` : 'opacity: 0.5; transform: translateY(10px);'">
+                                <div class="shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-300"
+                                     :class="activeTab === 'others' ? 'bg-red-500 text-white shadow-[0_0_10px_rgba(239,68,68,0.4)]' : 'bg-gray-200 dark:bg-gray-800 text-gray-500'">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </div>
+                                <span class="font-bold text-sm sm:text-base transition-colors duration-300 text-gray-500 dark:text-gray-400" :class="activeTab === 'others' ? 'text-gray-800 dark:text-gray-200' : ''" x-text="item"></span>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ========================================== -->
+
     <!-- VALUE PROPOSITION SECTION (Borderless Centered) -->
     <section class="py-20 md:py-28 px-6 relative z-10 bg-transparent transition-colors">
         <div class="max-w-[1150px] mx-auto">
@@ -792,92 +1072,164 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- UNIQUE PAY2BACK ROUTING MATRIX             -->
+    <!-- UNIQUE PAY2BACK ROUTING MATRIX (12 THEMES) -->
     <!-- ========================================== -->
     <style>
-        @keyframes float-node {
-            0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-            50% { transform: translate(-50%, -50%) translateY(-10px); }
+        /* Separated floating from centering to fix dotted line alignment */
+        @keyframes float-only {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
-        .node-float-1 { animation: float-node 4s ease-in-out infinite; }
-        .node-float-2 { animation: float-node 5s ease-in-out infinite 1s; }
-        .node-float-3 { animation: float-node 4.5s ease-in-out infinite 0.5s; }
-        .node-float-4 { animation: float-node 5.5s ease-in-out infinite 1.5s; }
+        .node-float-1 { animation: float-only 4s ease-in-out infinite; }
+        .node-float-2 { animation: float-only 5s ease-in-out infinite 1s; }
+        .node-float-3 { animation: float-only 4.5s ease-in-out infinite 0.5s; }
+        .node-float-4 { animation: float-only 5.5s ease-in-out infinite 1.5s; }
         
-        @keyframes flow-dash {
-            to { stroke-dashoffset: -40; }
-        }
-        .active-path {
-            stroke-dasharray: 10 10;
-            animation: flow-dash 0.5s linear infinite;
-        }
+        @keyframes flow-dash { to { stroke-dashoffset: -40; } }
+        .active-path { stroke-dasharray: 10 10; animation: flow-dash 0.5s linear infinite; }
+        
+        /* Custom scrollbar for the theme dropdown */
+        .theme-scrollbar::-webkit-scrollbar { width: 4px; }
+        .theme-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .theme-scrollbar::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.3); border-radius: 4px; }
     </style>
 
-    <section class="py-20 md:py-28 px-6 relative z-10 bg-transparent transition-colors duration-500">
-        <div class="max-w-[1150px] mx-auto">
+    <section class="py-20 md:py-28 px-4 sm:px-6 relative z-10 bg-transparent transition-colors duration-500 reveal">
+        <div class="max-w-[1150px] mx-auto"
+             x-data="{ 
+                activeNode: 0, 
+                mouseX: -1000, 
+                mouseY: -1000,
+                autoPlay: null,
+                dropdownOpen: false,
+                activeThemeIndex: 0,
+                themes: [
+                    { id: 'default', name: 'P2B Core', core: '#8b5cf6', n1: '#10b981', n2: '#3b82f6', n3: '#f59e0b', n4: '#ec4899', bg: 'rgba(139,92,246,0.15)', tintLight: 'rgba(139,92,246,0.03)', tintDark: 'rgba(139,92,246,0.08)' },
+                    { id: 'cyber', name: 'Cyberpunk', core: '#f000ff', n1: '#00f0ff', n2: '#f000ff', n3: '#00f0ff', n4: '#f000ff', bg: 'rgba(240,0,255,0.15)', tintLight: 'rgba(240,0,255,0.03)', tintDark: 'rgba(240,0,255,0.08)' },
+                    { id: 'aurora', name: 'Midnight Aurora', core: '#0d9488', n1: '#2dd4bf', n2: '#0ea5e9', n3: '#10b981', n4: '#06b6d4', bg: 'rgba(13,148,136,0.15)', tintLight: 'rgba(13,148,136,0.03)', tintDark: 'rgba(13,148,136,0.08)' },
+                    { id: 'solar', name: 'Solar Flare', core: '#f97316', n1: '#ef4444', n2: '#f59e0b', n3: '#fbbf24', n4: '#ea580c', bg: 'rgba(249,115,22,0.15)', tintLight: 'rgba(249,115,22,0.03)', tintDark: 'rgba(249,115,22,0.08)' },
+                    { id: 'ocean', name: 'Deep Ocean', core: '#2563eb', n1: '#0ea5e9', n2: '#38bdf8', n3: '#0284c7', n4: '#0369a1', bg: 'rgba(37,99,235,0.15)', tintLight: 'rgba(37,99,235,0.03)', tintDark: 'rgba(37,99,235,0.08)' },
+                    { id: 'emerald', name: 'Emerald City', core: '#059669', n1: '#10b981', n2: '#34d399', n3: '#059669', n4: '#6ee7b7', bg: 'rgba(5,150,105,0.15)', tintLight: 'rgba(5,150,105,0.03)', tintDark: 'rgba(5,150,105,0.08)' },
+                    { id: 'amethyst', name: 'Amethyst Glow', core: '#9333ea', n1: '#c084fc', n2: '#a855f7', n3: '#d946ef', n4: '#c084fc', bg: 'rgba(147,51,234,0.15)', tintLight: 'rgba(147,51,234,0.03)', tintDark: 'rgba(147,51,234,0.08)' },
+                    { id: 'crimson', name: 'Crimson Dusk', core: '#e11d48', n1: '#f43f5e', n2: '#fb7185', n3: '#e11d48', n4: '#be123c', bg: 'rgba(225,29,72,0.15)', tintLight: 'rgba(225,29,72,0.03)', tintDark: 'rgba(225,29,72,0.08)' },
+                    { id: 'monochrome', name: 'Monochrome Matrix', core: '#64748b', n1: '#94a3b8', n2: '#cbd5e1', n3: '#e2e8f0', n4: '#94a3b8', bg: 'rgba(100,116,139,0.15)', tintLight: 'rgba(100,116,139,0.03)', tintDark: 'rgba(100,116,139,0.08)' },
+                    { id: 'vice', name: 'Neon Vice', core: '#ec4899', n1: '#84cc16', n2: '#06b6d4', n3: '#84cc16', n4: '#06b6d4', bg: 'rgba(236,72,153,0.15)', tintLight: 'rgba(236,72,153,0.03)', tintDark: 'rgba(236,72,153,0.08)' },
+                    { id: 'frost', name: 'Arctic Frost', core: '#0284c7', n1: '#7dd3fc', n2: '#bae6fd', n3: '#e0f2fe', n4: '#7dd3fc', bg: 'rgba(2,132,199,0.15)', tintLight: 'rgba(2,132,199,0.03)', tintDark: 'rgba(2,132,199,0.08)' },
+                    { id: 'gold', name: 'Royal Gold', core: '#ca8a04', n1: '#facc15', n2: '#fde047', n3: '#eab308', n4: '#fef08a', bg: 'rgba(202,138,4,0.15)', tintLight: 'rgba(202,138,4,0.03)', tintDark: 'rgba(202,138,4,0.08)' }
+                ],
+                get currentTheme() { return this.themes[this.activeThemeIndex]; },
+                init() {
+                    this.startAutoPlay();
+                },
+                startAutoPlay() {
+                    // Start autoplay only on mobile and if not already playing
+                    if (window.innerWidth < 768 && !this.autoPlay) {
+                        this.activeNode = 1;
+                        this.autoPlay = setInterval(() => {
+                            this.activeNode = this.activeNode === 4 ? 1 : this.activeNode + 1;
+                        }, 2500);
+                    }
+                },
+                stopAutoPlay() {
+                    if (this.autoPlay) { clearInterval(this.autoPlay); this.autoPlay = null; }
+                },
+                updateMouse(e) {
+                    this.stopAutoPlay();
+                    const rect = this.$refs.board.getBoundingClientRect();
+                    this.mouseX = e.clientX - rect.left;
+                    this.mouseY = e.clientY - rect.top;
+                },
+                handleHover(node) {
+                    this.stopAutoPlay();
+                    this.activeNode = node;
+                },
+                handleLeave() {
+                    this.activeNode = 0;
+                    this.startAutoPlay(); // Resume autoplay if on mobile
+                }
+             }" 
+             class="relative z-10 w-full">
             
-            <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight transition-colors">Smart routing.<br>Instant margins.</h2>
-                <p class="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed transition-colors">Tap or hover over the network nodes below to see how Pay2Back seamlessly routes your transactions and instantly credits your wallet.</p>
+            <div class="text-center max-w-3xl mx-auto mb-10 md:mb-16">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-4 tracking-tight transition-colors">Smart routing.<br>Instant margins.</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed transition-colors">Watch real-time transaction data traverse our high-speed infrastructure.</p>
             </div>
 
             <!-- Interactive Glass Matrix Board -->
-            <div x-data="{ 
-                    activeNode: 0, 
-                    mouseX: -1000, 
-                    mouseY: -1000,
-                    updateMouse(e) {
-                        const rect = this.$refs.board.getBoundingClientRect();
-                        this.mouseX = e.clientX - rect.left;
-                        this.mouseY = e.clientY - rect.top;
-                    },
-                    toggleNode(node) {
-                        // For mobile tap logic: if tapping active node, close it. Else open new node.
-                        this.activeNode = this.activeNode === node ? 0 : node;
-                    }
-                 }" 
-                 x-ref="board"
+            <div x-ref="board"
                  @mousemove="updateMouse"
-                 @mouseleave="activeNode = 0; mouseX = -1000; mouseY = -1000"
-                 class="relative w-full h-[450px] sm:h-[550px] glass-panel rounded-[2rem] sm:rounded-[3rem] overflow-hidden border border-gray-200 dark:border-white/10 shadow-xl transition-colors cursor-crosshair select-none reveal">
+                 @mouseleave="mouseX = -1000; mouseY = -1000"
+                 class="relative w-full h-[480px] sm:h-[600px] glass-panel rounded-[2.5rem] sm:rounded-[3rem] overflow-visible border shadow-xl transition-all duration-700 cursor-crosshair select-none"
+                 :style="`
+                    border-color: ${currentTheme.core}40; 
+                    box-shadow: 0 25px 60px -10px ${currentTheme.bg}, inset 0 0 30px ${currentTheme.bg}; 
+                    background-color: ${isDark ? currentTheme.tintDark : currentTheme.tintLight};
+                 `">
                 
-                <!-- Dynamic Mouse Spotlight (Hidden on pure mobile touch) -->
-                <div class="hidden sm:block absolute inset-0 pointer-events-none transition-opacity duration-300 z-0 opacity-50 dark:opacity-100"
-                     :style="`background: radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(124,58,237,0.15), transparent 40%);`">
+                <!-- Inner Theme Dropdown (Top Right) -->
+                <div class="absolute top-5 right-5 sm:top-8 sm:right-8 z-[100]">
+                    <div class="relative">
+                        <button @click="dropdownOpen = !dropdownOpen" @click.away="dropdownOpen = false" 
+                                class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white/90 dark:bg-[#150a21]/95 backdrop-blur-xl border transition-all outline-none hover:-translate-y-0.5 shadow-lg"
+                                :style="`border-color: ${currentTheme.core}50;`">
+                            <span class="w-3 h-3 rounded-full transition-colors duration-500" :style="`background-color: ${currentTheme.core}; box-shadow: 0 0 10px ${currentTheme.core};`"></span>
+                            <span class="font-black text-gray-800 dark:text-white text-xs sm:text-sm transition-colors duration-500" x-text="currentTheme.name"></span>
+                            <svg class="w-3.5 h-3.5 text-gray-500 transition-transform duration-300" :class="dropdownOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+
+                        <div x-show="dropdownOpen" x-transition.opacity.duration.200ms x-cloak
+                             class="absolute right-0 mt-3 w-56 sm:w-64 max-h-[300px] overflow-y-auto theme-scrollbar rounded-2xl bg-white/95 dark:bg-[#150a21]/95 backdrop-blur-3xl border border-gray-200 dark:border-white/10 shadow-2xl p-2 z-[200]">
+                            <template x-for="(theme, index) in themes" :key="theme.id">
+                                <button @click="activeThemeIndex = index; dropdownOpen = false"
+                                        class="w-full flex items-center justify-between px-3 sm:px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 transition-colors outline-none"
+                                        :class="activeThemeIndex === index ? 'bg-gray-50 dark:bg-white/5' : ''">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-2.5 h-2.5 rounded-full transition-colors" :style="`background-color: ${theme.core}; box-shadow: 0 0 6px ${theme.core}`"></span>
+                                        <span class="text-xs sm:text-sm font-bold transition-colors" :class="activeThemeIndex === index ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400'" x-text="theme.name"></span>
+                                    </div>
+                                    <svg x-show="activeThemeIndex === index" class="w-4 h-4 transition-colors" :style="`color: ${theme.core}`" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </button>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Mouse Spotlight & Ambient Box Glow -->
+                <div class="hidden sm:block absolute inset-0 pointer-events-none transition-all duration-700 z-0 opacity-50 dark:opacity-100"
+                     :style="`background: radial-gradient(500px circle at ${mouseX}px ${mouseY}px, ${currentTheme.bg}, transparent 50%), radial-gradient(circle at center, ${currentTheme.bg}, transparent 80%);`">
                 </div>
 
                 <!-- SVG Routing Connections -->
                 <svg viewBox="0 0 1000 600" preserveAspectRatio="none" class="absolute inset-0 w-full h-full pointer-events-none z-10">
                     <defs>
-                        <!-- Glowing Gradient for Active Paths -->
                         <linearGradient id="glowLine1" x1="500" y1="300" x2="200" y2="150" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="1"/>
-                            <stop offset="100%" stop-color="#10b981" stop-opacity="1"/>
+                            <stop offset="0%" :stop-color="currentTheme.core" stop-opacity="1" style="transition: stop-color 0.5s ease;"/>
+                            <stop offset="100%" :stop-color="currentTheme.n1" stop-opacity="1" style="transition: stop-color 0.5s ease;"/>
                         </linearGradient>
                         <linearGradient id="glowLine2" x1="500" y1="300" x2="800" y2="150" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="1"/>
-                            <stop offset="100%" stop-color="#3b82f6" stop-opacity="1"/>
+                            <stop offset="0%" :stop-color="currentTheme.core" stop-opacity="1" style="transition: stop-color 0.5s ease;"/>
+                            <stop offset="100%" :stop-color="currentTheme.n2" stop-opacity="1" style="transition: stop-color 0.5s ease;"/>
                         </linearGradient>
                         <linearGradient id="glowLine3" x1="500" y1="300" x2="200" y2="450" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="1"/>
-                            <stop offset="100%" stop-color="#f59e0b" stop-opacity="1"/>
+                            <stop offset="0%" :stop-color="currentTheme.core" stop-opacity="1" style="transition: stop-color 0.5s ease;"/>
+                            <stop offset="100%" :stop-color="currentTheme.n3" stop-opacity="1" style="transition: stop-color 0.5s ease;"/>
                         </linearGradient>
                         <linearGradient id="glowLine4" x1="500" y1="300" x2="800" y2="450" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="1"/>
-                            <stop offset="100%" stop-color="#ec4899" stop-opacity="1"/>
+                            <stop offset="0%" :stop-color="currentTheme.core" stop-opacity="1" style="transition: stop-color 0.5s ease;"/>
+                            <stop offset="100%" :stop-color="currentTheme.n4" stop-opacity="1" style="transition: stop-color 0.5s ease;"/>
                         </linearGradient>
                     </defs>
 
-                    <!-- Faint Background Curves (Always visible) -->
-                    <g class="text-gray-300 dark:text-gray-700" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="6 6" opacity="0.4">
+                    <!-- Faint Background Curves -->
+                    <g class="text-gray-400 dark:text-gray-700" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="6 6" opacity="0.4">
                         <path d="M 500 300 C 350 300, 350 150, 200 150" />
                         <path d="M 500 300 C 650 300, 650 150, 800 150" />
                         <path d="M 500 300 C 350 300, 350 450, 200 450" />
                         <path d="M 500 300 C 650 300, 650 450, 800 450" />
                     </g>
 
-                    <!-- Active Glowing Curves (Triggered by Hover/Tap) -->
-                    <g stroke-width="4" fill="none" class="active-path" style="filter: drop-shadow(0 0 6px rgba(139,92,246,0.5));">
+                    <!-- Active Glowing Curves -->
+                    <g stroke-width="4" fill="none" class="active-path transition-all duration-700" :style="`filter: drop-shadow(0 0 8px ${currentTheme.core}80);`">
                         <path d="M 500 300 C 350 300, 350 150, 200 150" stroke="url(#glowLine1)" x-show="activeNode === 1" x-transition.opacity />
                         <path d="M 500 300 C 650 300, 650 150, 800 150" stroke="url(#glowLine2)" x-show="activeNode === 2" x-transition.opacity />
                         <path d="M 500 300 C 350 300, 350 450, 200 450" stroke="url(#glowLine3)" x-show="activeNode === 3" x-transition.opacity />
@@ -887,80 +1239,88 @@
 
                 <!-- Central Pay2Back Core Node -->
                 <div class="absolute top-[50%] left-[50%] z-30 flex flex-col items-center pointer-events-none" style="transform: translate(-50%, -50%);">
-                    <div class="relative w-20 h-20 sm:w-24 sm:h-24 bg-white dark:bg-[#0a0510] rounded-full shadow-[0_10px_40px_rgba(124,58,237,0.3)] border border-brand-200 dark:border-brand-500/50 flex items-center justify-center transition-transform duration-500"
-                         :class="activeNode !== 0 ? 'scale-110 shadow-[0_0_60px_rgba(124,58,237,0.6)]' : ''">
-                        <div class="absolute inset-0 rounded-full border border-brand-500 animate-ping opacity-20"></div>
-                        <img src="assets/p2bfinal2.png" alt="Core" class="w-10 h-10 sm:w-12 sm:h-12 object-contain relative z-10">
+                    <div class="relative w-20 h-20 sm:w-28 sm:h-28 bg-white dark:bg-[#0a0510] rounded-full border-2 flex items-center justify-center transition-all duration-700"
+                         :style="activeNode !== 0 ? `border-color: ${currentTheme.core}; box-shadow: 0 0 60px ${currentTheme.core}80; transform: scale(1.1);` : `border-color: ${currentTheme.core}50; shadow-lg`">
+                        <div class="absolute inset-0 rounded-full border-2 animate-ping opacity-30 transition-colors duration-700" :style="`border-color: ${currentTheme.core};`"></div>
+                        <img src="assets/p2bfinal2.png" alt="Core" class="w-10 h-10 sm:w-14 sm:h-14 object-contain relative z-10 transition-transform duration-500 rounded-xl bg-white">
                     </div>
-                    <div class="mt-3 sm:mt-4 px-3 sm:px-4 py-1.5 bg-gray-900 dark:bg-white rounded-full text-white dark:text-gray-900 text-[10px] sm:text-xs font-black tracking-widest uppercase shadow-lg transition-transform duration-500"
+                    <div class="mt-3 sm:mt-5 px-3 sm:px-5 py-1 sm:py-1.5 bg-gray-900 dark:bg-white rounded-full text-white dark:text-gray-900 text-[10px] sm:text-xs font-black tracking-widest uppercase shadow-xl transition-transform duration-500"
                          :class="activeNode !== 0 ? 'translate-y-2' : ''">
                         P2B Core
                     </div>
                 </div>
 
-                <!-- ================== OUTER NODES ================== -->
+                <!-- ================== OUTER NODES (Fixed Perfect Alignment) ================== -->
 
-                <!-- Node 1: Mobile Recharge (Top Left) -->
-                <div class="absolute top-[25%] left-[20%] z-20 node-float-1 group" 
-                     @mouseenter="activeNode = 1" @click="toggleNode(1)">
-                    <div class="relative flex flex-col items-center cursor-pointer transition-transform duration-300" :class="activeNode === 1 ? 'scale-110 sm:scale-125 z-40' : 'scale-100 hover:scale-110'">
-                        <div class="absolute -top-8 sm:-top-10 whitespace-nowrap px-2 sm:px-3 py-1 bg-success-500 text-white text-[9px] sm:text-[10px] font-black rounded-lg shadow-lg opacity-0 -translate-y-2 transition-all duration-300 pointer-events-none"
+                <!-- Node 1: Mobile Recharge -->
+                <div class="absolute top-[25%] left-[20%] z-40 flex flex-col items-center cursor-pointer" 
+                     style="transform: translate(-50%, -50%);"
+                     @mouseenter="handleHover(1)" @mouseleave="handleLeave()" @touchstart.passive="handleHover(1)">
+                    <div class="node-float-1 group flex flex-col items-center transition-transform duration-300" :class="activeNode === 1 ? 'scale-110 sm:scale-125' : 'scale-100'">
+                        <div class="absolute -top-8 sm:-top-10 whitespace-nowrap px-2 sm:px-3 py-1 text-white text-[9px] sm:text-[11px] font-black rounded-lg shadow-xl opacity-0 -translate-y-2 transition-all duration-500 pointer-events-none z-50 border border-white/20"
+                             :style="`background-color: ${currentTheme.n1}; box-shadow: 0 10px 20px ${currentTheme.n1}50;`"
                              :class="activeNode === 1 ? 'opacity-100 translate-y-0' : ''">
                             +4.0% Margin
                         </div>
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white dark:bg-[#150a21] rounded-2xl shadow-lg border border-gray-200 dark:border-white/10 flex items-center justify-center text-xl sm:text-2xl transition-colors"
-                             :class="activeNode === 1 ? 'border-success-400 dark:border-success-500 shadow-[0_0_30px_rgba(16,185,129,0.3)]' : ''">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white dark:bg-[#150a21] rounded-xl sm:rounded-2xl border flex items-center justify-center text-xl sm:text-2xl transition-all duration-700 relative z-40"
+                             :style="activeNode === 1 ? `border-color: ${currentTheme.n1}; box-shadow: 0 0 30px ${currentTheme.n1}70; background-color: ${currentTheme.n1}10;` : 'border-color: rgba(255,255,255,0.1);'">
                             📱
                         </div>
-                        <span class="mt-2 sm:mt-3 text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-black/50 backdrop-blur-md px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/20">Prepaid</span>
+                        <span class="mt-2 sm:mt-3 text-[10px] sm:text-sm font-bold text-gray-700 dark:text-gray-300 bg-white/70 dark:bg-black/70 backdrop-blur-md px-2 sm:px-4 py-0.5 sm:py-1 rounded-full border border-gray-200 dark:border-white/10 shadow-sm relative z-40">Prepaid</span>
                     </div>
                 </div>
 
-                <!-- Node 2: DTH (Top Right) -->
-                <div class="absolute top-[25%] left-[80%] z-20 node-float-2 group" 
-                     @mouseenter="activeNode = 2" @click="toggleNode(2)">
-                    <div class="relative flex flex-col items-center cursor-pointer transition-transform duration-300" :class="activeNode === 2 ? 'scale-110 sm:scale-125 z-40' : 'scale-100 hover:scale-110'">
-                        <div class="absolute -top-8 sm:-top-10 whitespace-nowrap px-2 sm:px-3 py-1 bg-blue-500 text-white text-[9px] sm:text-[10px] font-black rounded-lg shadow-lg opacity-0 -translate-y-2 transition-all duration-300 pointer-events-none"
+                <!-- Node 2: DTH -->
+                <div class="absolute top-[25%] left-[80%] z-40 flex flex-col items-center cursor-pointer" 
+                     style="transform: translate(-50%, -50%);"
+                     @mouseenter="handleHover(2)" @mouseleave="handleLeave()" @touchstart.passive="handleHover(2)">
+                    <div class="node-float-2 group flex flex-col items-center transition-transform duration-300" :class="activeNode === 2 ? 'scale-110 sm:scale-125' : 'scale-100'">
+                        <div class="absolute -top-8 sm:-top-10 whitespace-nowrap px-2 sm:px-3 py-1 text-white text-[9px] sm:text-[11px] font-black rounded-lg shadow-xl opacity-0 -translate-y-2 transition-all duration-500 pointer-events-none z-50 border border-white/20"
+                             :style="`background-color: ${currentTheme.n2}; box-shadow: 0 10px 20px ${currentTheme.n2}50;`"
                              :class="activeNode === 2 ? 'opacity-100 translate-y-0' : ''">
                             +4.0% Margin
                         </div>
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white dark:bg-[#150a21] rounded-2xl shadow-lg border border-gray-200 dark:border-white/10 flex items-center justify-center text-xl sm:text-2xl transition-colors"
-                             :class="activeNode === 2 ? 'border-blue-400 dark:border-blue-500 shadow-[0_0_30px_rgba(59,130,246,0.3)]' : ''">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white dark:bg-[#150a21] rounded-xl sm:rounded-2xl border flex items-center justify-center text-xl sm:text-2xl transition-all duration-700 relative z-40"
+                             :style="activeNode === 2 ? `border-color: ${currentTheme.n2}; box-shadow: 0 0 30px ${currentTheme.n2}70; background-color: ${currentTheme.n2}10;` : 'border-color: rgba(255,255,255,0.1);'">
                             📺
                         </div>
-                        <span class="mt-2 sm:mt-3 text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-black/50 backdrop-blur-md px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/20">DTH</span>
+                        <span class="mt-2 sm:mt-3 text-[10px] sm:text-sm font-bold text-gray-700 dark:text-gray-300 bg-white/70 dark:bg-black/70 backdrop-blur-md px-2 sm:px-4 py-0.5 sm:py-1 rounded-full border border-gray-200 dark:border-white/10 shadow-sm relative z-40">DTH</span>
                     </div>
                 </div>
 
-                <!-- Node 3: FasTag (Bottom Left) -->
-                <div class="absolute top-[75%] left-[20%] z-20 node-float-3 group" 
-                     @mouseenter="activeNode = 3" @click="toggleNode(3)">
-                    <div class="relative flex flex-col items-center cursor-pointer transition-transform duration-300" :class="activeNode === 3 ? 'scale-110 sm:scale-125 z-40' : 'scale-100 hover:scale-110'">
-                        <div class="absolute -top-8 sm:-top-10 whitespace-nowrap px-2 sm:px-3 py-1 bg-yellow-500 text-white text-[9px] sm:text-[10px] font-black rounded-lg shadow-lg opacity-0 -translate-y-2 transition-all duration-300 pointer-events-none"
+                <!-- Node 3: FasTag -->
+                <div class="absolute top-[75%] left-[20%] z-40 flex flex-col items-center cursor-pointer" 
+                     style="transform: translate(-50%, -50%);"
+                     @mouseenter="handleHover(3)" @mouseleave="handleLeave()" @touchstart.passive="handleHover(3)">
+                    <div class="node-float-3 group flex flex-col items-center transition-transform duration-300" :class="activeNode === 3 ? 'scale-110 sm:scale-125' : 'scale-100'">
+                        <div class="absolute -top-8 sm:-top-10 whitespace-nowrap px-2 sm:px-3 py-1 text-white text-[9px] sm:text-[11px] font-black rounded-lg shadow-xl opacity-0 -translate-y-2 transition-all duration-500 pointer-events-none z-50 border border-white/20"
+                             :style="`background-color: ${currentTheme.n3}; box-shadow: 0 10px 20px ${currentTheme.n3}50;`"
                              :class="activeNode === 3 ? 'opacity-100 translate-y-0' : ''">
                             +0.15% Margin
                         </div>
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white dark:bg-[#150a21] rounded-2xl shadow-lg border border-gray-200 dark:border-white/10 flex items-center justify-center text-xl sm:text-2xl transition-colors"
-                             :class="activeNode === 3 ? 'border-yellow-400 dark:border-yellow-500 shadow-[0_0_30px_rgba(245,158,11,0.3)]' : ''">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white dark:bg-[#150a21] rounded-xl sm:rounded-2xl border flex items-center justify-center text-xl sm:text-2xl transition-all duration-700 relative z-40"
+                             :style="activeNode === 3 ? `border-color: ${currentTheme.n3}; box-shadow: 0 0 30px ${currentTheme.n3}70; background-color: ${currentTheme.n3}10;` : 'border-color: rgba(255,255,255,0.1);'">
                             🚘
                         </div>
-                        <span class="mt-2 sm:mt-3 text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-black/50 backdrop-blur-md px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/20">FasTag</span>
+                        <span class="mt-2 sm:mt-3 text-[10px] sm:text-sm font-bold text-gray-700 dark:text-gray-300 bg-white/70 dark:bg-black/70 backdrop-blur-md px-2 sm:px-4 py-0.5 sm:py-1 rounded-full border border-gray-200 dark:border-white/10 shadow-sm relative z-40">FasTag</span>
                     </div>
                 </div>
 
-                <!-- Node 4: Electricity (Bottom Right) -->
-                <div class="absolute top-[75%] left-[80%] z-20 node-float-4 group" 
-                     @mouseenter="activeNode = 4" @click="toggleNode(4)">
-                    <div class="relative flex flex-col items-center cursor-pointer transition-transform duration-300" :class="activeNode === 4 ? 'scale-110 sm:scale-125 z-40' : 'scale-100 hover:scale-110'">
-                        <div class="absolute -top-8 sm:-top-10 whitespace-nowrap px-2 sm:px-3 py-1 bg-pink-500 text-white text-[9px] sm:text-[10px] font-black rounded-lg shadow-lg opacity-0 -translate-y-2 transition-all duration-300 pointer-events-none"
+                <!-- Node 4: Electricity -->
+                <div class="absolute top-[75%] left-[80%] z-40 flex flex-col items-center cursor-pointer" 
+                     style="transform: translate(-50%, -50%);"
+                     @mouseenter="handleHover(4)" @mouseleave="handleLeave()" @touchstart.passive="handleHover(4)">
+                    <div class="node-float-4 group flex flex-col items-center transition-transform duration-300" :class="activeNode === 4 ? 'scale-110 sm:scale-125' : 'scale-100'">
+                        <div class="absolute -top-8 sm:-top-10 whitespace-nowrap px-2 sm:px-3 py-1 text-white text-[9px] sm:text-[11px] font-black rounded-lg shadow-xl opacity-0 -translate-y-2 transition-all duration-500 pointer-events-none z-50 border border-white/20"
+                             :style="`background-color: ${currentTheme.n4}; box-shadow: 0 10px 20px ${currentTheme.n4}50;`"
                              :class="activeNode === 4 ? 'opacity-100 translate-y-0' : ''">
                             +1.5% Margin
                         </div>
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white dark:bg-[#150a21] rounded-2xl shadow-lg border border-gray-200 dark:border-white/10 flex items-center justify-center text-xl sm:text-2xl transition-colors"
-                             :class="activeNode === 4 ? 'border-pink-400 dark:border-pink-500 shadow-[0_0_30px_rgba(236,72,153,0.3)]' : ''">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white dark:bg-[#150a21] rounded-xl sm:rounded-2xl border flex items-center justify-center text-xl sm:text-2xl transition-all duration-700 relative z-40"
+                             :style="activeNode === 4 ? `border-color: ${currentTheme.n4}; box-shadow: 0 0 30px ${currentTheme.n4}70; background-color: ${currentTheme.n4}10;` : 'border-color: rgba(255,255,255,0.1);'">
                             💡
                         </div>
-                        <span class="mt-2 sm:mt-3 text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-black/50 backdrop-blur-md px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/20">Electricity</span>
+                        <span class="mt-2 sm:mt-3 text-[10px] sm:text-sm font-bold text-gray-700 dark:text-gray-300 bg-white/70 dark:bg-black/70 backdrop-blur-md px-2 sm:px-4 py-0.5 sm:py-1 rounded-full border border-gray-200 dark:border-white/10 shadow-sm relative z-40">Power</span>
                     </div>
                 </div>
 
@@ -1286,44 +1646,64 @@
     </section>
 
     <!-- PERFECTED DYNAMIC MARGIN CALCULATOR -->
-    <section id="calculator" class="py-20 md:py-28 px-6 relative overflow-hidden z-10 transition-colors">
+    <section id="calculator" class="py-16 md:py-28 px-4 sm:px-6 relative overflow-hidden z-10 transition-colors">
         <div class="max-w-6xl mx-auto relative z-10" x-data="{ amount: 50000, margin: 4 }">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight transition-colors">Calculate Your Profit</h2>
-                <p class="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto transition-colors">Are you a shop owner or a heavy user? Slide to see your guaranteed annual savings.</p>
+            <div class="text-center mb-12 md:mb-20">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-4 sm:mb-6 tracking-tight transition-colors">Calculate Your Profit</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-base sm:text-lg md:text-xl font-medium max-w-2xl mx-auto transition-colors">Are you a shop owner or a heavy user? Enter your volume or slide to see guaranteed savings.</p>
             </div>
 
             <!-- Beautiful Glassmorphic Calculator Panel -->
-            <div class="glass-panel rounded-[3rem] p-8 md:p-16 lg:p-20 transition-colors duration-300 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-50 dark:bg-brand-900/20 rounded-full blur-[80px] -mr-[200px] -mt-[200px] pointer-events-none transition-colors"></div>
+            <div class="glass-panel rounded-3xl sm:rounded-[3rem] p-6 sm:p-10 md:p-16 lg:p-20 transition-colors duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-brand-50 dark:bg-brand-900/20 rounded-full blur-[60px] md:blur-[80px] -mr-[150px] -mt-[150px] md:-mr-[200px] md:-mt-[200px] pointer-events-none transition-colors"></div>
                 
-                <div class="mb-16 relative z-10">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-                        <label class="text-2xl font-bold text-gray-700 dark:text-gray-300 transition-colors">Monthly Recharge Volume</label>
-                        <div class="bg-white dark:bg-darkcard px-8 py-4 rounded-2xl border border-gray-200 dark:border-white/10 text-4xl md:text-5xl font-black text-brand-600 dark:text-brand-400 shadow-sm transition-colors" x-text="'₹ ' + Number(amount).toLocaleString('en-IN')"></div>
+                <div class="mb-12 sm:mb-16 relative z-10">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 sm:mb-8 gap-4">
+                        <label class="text-xl sm:text-2xl font-bold text-gray-700 dark:text-gray-300 transition-colors">Monthly Recharge Volume</label>
+                        
+                        <!-- Interactive Input Box (Replaces static div) -->
+                        <div class="bg-white dark:bg-darkcard px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm transition-colors w-full md:w-auto flex items-center gap-2 group focus-within:border-brand-500 dark:focus-within:border-brand-400 focus-within:ring-4 focus-within:ring-brand-500/20">
+                            <span class="text-2xl sm:text-3xl md:text-5xl font-black text-gray-400 dark:text-gray-500 select-none">₹</span>
+                            <!-- Removed browser arrows using custom CSS classes -->
+                            <input 
+                                type="number" 
+                                min="0" 
+                                max="5000000"
+                                x-model.number="amount" 
+                                class="w-full md:w-[220px] bg-transparent border-none outline-none text-3xl sm:text-4xl md:text-5xl font-black text-brand-600 dark:text-brand-400 p-0 m-0 focus:ring-0 appearance-none [-moz-appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                placeholder="0"
+                            >
+                        </div>
                     </div>
-                    <input type="range" min="1000" max="200000" step="1000" x-model="amount" class="w-full h-5 bg-gray-200 dark:bg-gray-800 rounded-full appearance-none cursor-pointer accent-brand-600 dark:accent-brand-500 outline-none shadow-inner border border-gray-300 dark:border-white/5 transition-colors">
-                    <div class="flex justify-between text-sm font-bold text-gray-400 mt-6 uppercase tracking-widest transition-colors">
+                    
+                    <input type="range" min="1000" max="200000" step="1000" x-model="amount" class="w-full h-4 sm:h-5 bg-gray-200 dark:bg-gray-800 rounded-full appearance-none cursor-pointer accent-brand-600 dark:accent-brand-500 outline-none shadow-inner border border-gray-300 dark:border-white/5 transition-colors">
+                    
+                    <div class="flex justify-between text-xs sm:text-sm font-bold text-gray-400 mt-4 sm:mt-6 uppercase tracking-widest transition-colors">
                         <span>Personal (₹1K)</span>
                         <span>Retailer (₹2L+)</span>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 relative z-10">
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-8 relative z-10">
                     <!-- Profit Display -->
-                    <div class="bg-gradient-to-br from-brand-600 to-brand-800 rounded-[2rem] p-10 text-white relative overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform border border-brand-500/50">
-                        <div class="absolute right-0 top-0 w-48 h-48 bg-white opacity-10 rounded-full blur-xl -mr-16 -mt-16"></div>
-                        <div class="text-sm font-bold text-brand-200 uppercase tracking-widest mb-3">Yearly Earnings Projection</div>
-                        <div class="text-6xl md:text-7xl font-black tracking-tight" x-text="'₹ ' + Math.round((amount * 0.04) * 12).toLocaleString('en-IN')"></div>
-                        <div class="mt-8 flex items-center gap-3 text-sm font-bold text-white bg-white/20 inline-flex px-4 py-2.5 rounded-xl backdrop-blur-sm">
-                            <span class="w-3 h-3 rounded-full bg-success-400 animate-pulse"></span> Calculated at Max 4.0% Margin
+                    <div class="bg-gradient-to-br from-brand-600 to-brand-800 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 md:p-10 text-white relative overflow-hidden shadow-xl transform hover:-translate-y-1 sm:hover:-translate-y-2 transition-transform border border-brand-500/50">
+                        <div class="absolute right-0 top-0 w-32 h-32 md:w-48 md:h-48 bg-white opacity-10 rounded-full blur-xl -mr-10 -mt-10 md:-mr-16 md:-mt-16 pointer-events-none"></div>
+                        <div class="text-[10px] sm:text-sm font-bold text-brand-200 uppercase tracking-widest mb-2 sm:mb-3">Yearly Earnings Projection</div>
+                        
+                        <!-- Dynamic sizing and break-words prevents mobile overflow -->
+                        <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight break-words" x-text="'₹ ' + Math.round((amount * 0.04) * 12).toLocaleString('en-IN')"></div>
+                        
+                        <div class="mt-6 sm:mt-8 flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] sm:text-sm font-bold text-white bg-white/20 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl backdrop-blur-sm w-fit">
+                            <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-success-400 animate-pulse shrink-0"></span> 
+                            <span>Calculated at Max 4.0% Margin</span>
                         </div>
                     </div>
+                    
                     <!-- Action Display -->
-                    <div class="glass-panel rounded-[2rem] p-10 flex flex-col justify-center transform hover:-translate-y-2 transition-all">
-                        <div class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 transition-colors">Why wait?</div>
-                        <h3 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-8 tracking-tight transition-colors">Start earning today.</h3>
-                        <a href="https://pay2back.in/refer/HLI1JC" target="_blank" class="btn-beam w-full py-5 bg-gray-900 dark:bg-brand-600 text-white font-extrabold text-xl text-center rounded-2xl transition-colors shadow-lg hover:shadow-xl">
+                    <div class="glass-panel rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 md:p-10 flex flex-col justify-center transform hover:-translate-y-1 sm:hover:-translate-y-2 transition-all">
+                        <div class="text-xs sm:text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-2 sm:mb-3 transition-colors">Why wait?</div>
+                        <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-6 sm:mb-8 tracking-tight transition-colors">Start earning today.</h3>
+                        <a href="https://pay2back.in/refer/HLI1JC" target="_blank" class="btn-beam w-full py-4 sm:py-5 bg-gray-900 dark:bg-brand-600 text-white font-extrabold text-lg sm:text-xl text-center rounded-2xl transition-colors shadow-lg hover:shadow-xl">
                             Download the App Now
                         </a>
                     </div>
@@ -1619,25 +1999,173 @@
                 <div class="lg:col-span-3 flex flex-col h-full space-y-8">
                     
                     <!-- App & Security Block -->
-                    <div>
-                        <div class="flex flex-col gap-4">
-                            <a href="https://pay2back.in/refer/HLI1JC" target="_blank" class="hover:scale-105 transition-transform w-max">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="h-10 w-auto">
-                            </a>
-                            <div class="flex items-center gap-3 bg-success-50 dark:bg-[#0a0510] p-3 rounded-xl border border-success-200 dark:border-white/10 shadow-sm w-max transition-colors">
-                                <div class="text-2xl">🛡️</div>
-                                <div>
-                                    <div class="text-xs font-black text-success-700 dark:text-white transition-colors">256-bit Secured</div>
-                                    <div class="text-[9px] text-success-600 dark:text-gray-500 uppercase font-bold mt-0.5 transition-colors">PCI-DSS Compliant</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="w-full">
+    
+    <style>
+        /* === LIGHT MODE (Now using the same vibrant Dribbble Neon Colors) === */
+        .realism-btn {
+            --btn-border: radial-gradient(circle 80px at 80% -10%, #ffffff, #cbd5e1);
+            --btn-inner: radial-gradient(circle 80px at 80% -50%, #ffffff, #f1f5f9);
+            --text-c: #0f172a;
+            --ambient-white: rgba(0, 0, 0, 0.1);
+            /* Exact Neon Colors unified across both modes */
+            --neon-cyan: #3fe9ff;
+            --neon-blue: rgba(0, 0, 255, 0.6);
+            --inner-glow: radial-gradient(circle 60px at 0% 100%, rgba(63, 233, 255, 0.15), rgba(0, 0, 255, 0.05), transparent);
+        }
+
+        /* === DARK MODE === */
+        .dark .realism-btn {
+            --btn-border: radial-gradient(circle 80px at 80% -10%, #ffffff, #181b1b);
+            --btn-inner: radial-gradient(circle 80px at 80% -50%, #777777, #0f1111);
+            --text-c: #ffffff;
+            --ambient-white: #ffffff38;
+        }
+
+        /* === BASE BUTTON === */
+        .realism-btn {
+            position: relative;
+            cursor: pointer;
+            border-radius: 12px;
+            padding: 2px; /* Creates the border track */
+            background: var(--btn-border);
+            display: flex;
+            text-decoration: none;
+            transform: scale(1);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+        }
+
+        .realism-btn:hover {
+            transform: scale(0.95);
+        }
+
+        /* 1. Outer Ambient Cyan Aura (Restoring the Dribbble Outer Glow) */
+        .realism-btn::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+            width: 50%;
+            height: 50%;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+            filter: blur(15px);
+            opacity: 0.35;
+            z-index: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .realism-btn:hover::before {
+            opacity: 0.6;
+            transform: scale(1.2) translate(-5px, 5px);
+        }
+
+        /* 2. Top Right Ambient Glow (Dribbble ::after) */
+        .realism-btn::after {
+            content: "";
+            position: absolute;
+            width: 65%;
+            height: 60%;
+            border-radius: 120px;
+            top: 0;
+            right: 0;
+            box-shadow: 0 0 20px var(--ambient-white);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* === THE SOFT BORDER CIRCLING ENGINE === */
+        .realism-btn .glow-mask {
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .realism-btn .spinning-colors {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            /* FIXED: Added 'transparent 100%' so the head of the beam has no harsh cut-off line */
+            background: conic-gradient(from 0deg, transparent 0%, transparent 50%, var(--neon-blue) 80%, var(--neon-cyan) 95%, transparent 100%);
+            animation: safe-spin 3s linear infinite;
+            /* FIXED: Blurred the gradient so it looks like soft moving light, not a sharp radar */
+            filter: blur(4px);
+        }
+
+        @keyframes safe-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* === INNER CORE (The Text Area) === */
+        .realism-btn .inner {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+            background: var(--btn-inner);
+            color: var(--text-c);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            transition: background 0.3s ease, color 0.3s ease;
+            overflow: hidden;
+        }
+
+        /* Inner Bottom-Left Glow */
+        .realism-btn .inner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--inner-glow);
+            pointer-events: none;
+        }
+    </style>
+
+    <div class="flex flex-col gap-4">
+        
+        <!-- Side-by-Side Buttons -->
+        <div class="flex items-center gap-3 w-full">
+            
+            <!-- Google Play Badge -->
+            <a href="https://pay2back.in/refer/HLI1JC" target="_blank" class="shrink-0 hover:-translate-y-0.5 transition-transform duration-300">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="h-10 w-auto block">
+            </a>
+            
+            <!-- Safe, Soft-Animated Realism Button -->
+            <a href="https://pay2back.in/" target="_blank" class="realism-btn flex-1 h-10">
+                <div class="glow-mask">
+                    <div class="spinning-colors"></div>
+                </div>
+                <div class="inner">Sign Up Now</div>
+            </a>
+
+        </div>
+        
+        <!-- Security box -->
+        <div class="flex items-center gap-3 bg-success-50 dark:bg-[#0a0510] p-3 rounded-xl border border-success-200 dark:border-white/10 shadow-sm w-full justify-center transition-colors">
+            <div class="text-2xl shrink-0">🛡️</div>
+            <div class="text-left">
+                <div class="text-xs font-black text-success-700 dark:text-white transition-colors">256-bit Secured</div>
+                <div class="text-[9px] text-success-600 dark:text-gray-500 uppercase font-bold mt-0.5 transition-colors">PCI-DSS Compliant</div>
+            </div>
+        </div>
+        
+    </div>
+</div>
 
                     <!-- Social Networks (Signal Broadcast) -->
                     <div>
                         <h4 class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-4">Social Networks</h4>
-                        <div class="flex flex-wrap gap-2.5">
+                        <div class="flex flex-wrap gap-4">
                             <!-- Instagram -->
                             <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-gray-50 dark:bg-[#0a0510] border border-gray-200 dark:border-white/10 flex items-center justify-center group hover:bg-gradient-to-tr hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF] hover:border-transparent hover:shadow-[0_0_15px_rgba(221,42,123,0.4)] hover:-translate-y-1 transition-all duration-300">
                                 <svg class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" clip-rule="evenodd"/></svg>
@@ -1703,23 +2231,23 @@
     </footer>
 
     <!-- STICKY FLOATING MOBILE CTA -->
-    <div class="md:hidden fixed bottom-0 left-0 w-full bg-white/95 dark:bg-[#05020a]/95 backdrop-blur-2xl border-t border-gray-200 dark:border-white/10 z-[300] px-5 py-4 flex items-center justify-between shadow-[0_-15px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_-15px_40px_rgba(0,0,0,0.5)] pb-safe transition-colors">
-        <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-xl shadow-md border border-gray-200 dark:border-white/10 flex items-center justify-center overflow-hidden transition-colors">
-                <img src="assets/p2bfinal2.png" alt="App" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <div class="text-[17px] font-black text-gray-900 dark:text-white leading-tight tracking-tight transition-colors">Pay2Back App</div>
-                <div class="text-[12px] text-success-600 dark:text-success-400 font-extrabold uppercase tracking-widest mt-0.5">Earn 4% Margin</div>
-            </div>
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-white/95 dark:bg-[#05020a]/95 backdrop-blur-2xl border-t border-gray-200 dark:border-white/10 z-[300] px-4 py-2 flex items-center justify-between shadow-[0_-10px_25px_rgba(0,0,0,0.1)] dark:shadow-[0_-10px_25px_rgba(0,0,0,0.5)] pb-safe transition-colors">
+    <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl shadow-sm border border-gray-200 dark:border-white/10 flex items-center justify-center overflow-hidden transition-colors shrink-0">
+            <img src="assets/p2bfinal2.png" alt="App" class="w-full h-full object-cover">
         </div>
-        <div class="relative">
-            <div class="absolute inset-0 bg-brand-500 rounded-xl animate-ping opacity-30"></div>
-            <a href="https://pay2back.in/refer/HLI1JC" target="_blank" class="btn-beam relative block px-7 py-3.5 bg-gray-900 dark:bg-brand-600 text-white font-black text-[15px] rounded-xl shadow-lg border border-gray-800 dark:border-brand-500 active:scale-95 transition-transform">
-                Install App
-            </a>
+        <div>
+            <div class="text-sm font-black text-gray-900 dark:text-white leading-tight tracking-tight transition-colors">Pay2Back App</div>
+            <div class="text-[9px] text-success-600 dark:text-success-400 font-extrabold uppercase tracking-widest mt-0.5">Earn 4% Margin</div>
         </div>
     </div>
+    <div class="relative">
+        <div class="absolute inset-0 bg-brand-500 rounded-xl animate-ping opacity-30"></div>
+        <a href="https://pay2back.in/refer/HLI1JC" target="_blank" class="btn-beam relative block px-4 py-2 bg-gray-900 dark:bg-brand-600 text-white font-black text-[11px] rounded-xl shadow-md border border-gray-800 dark:border-brand-500 active:scale-95 transition-transform">
+            Install App
+        </a>
+    </div>
+</div>
 
     <!-- ========================================== -->
     <!-- BUTTERY-SMOOTH SCROLL REVEAL ENGINE        -->
